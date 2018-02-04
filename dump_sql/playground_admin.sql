@@ -1,0 +1,1 @@
+UPDATE playground.admin SET role = 'MODERATOR' WHERE id = 5;

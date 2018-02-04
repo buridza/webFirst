@@ -15,7 +15,6 @@ public class UserDAO {
         session.beginTransaction();
 
         List<User> resultList = session.createQuery("select a from User a", User.class).getResultList();
-
         session.getTransaction().commit();
         session.close();
         sessionFactory.close();

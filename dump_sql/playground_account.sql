@@ -1,0 +1,5 @@
+UPDATE playground.account SET apartment = 10, city = 'Belarus', house = 10, street = 'Minsk', email = 'THeBest@gmail.com', login = 'TheBest', name = 'Alex', password = '12345' WHERE id = 1;
+UPDATE playground.account SET apartment = 30, city = 'Minsk', house = 20, street = 'Lopatina', email = 'nirvana@gmail.com', login = 'BestCompany', name = 'NIrVaNA', password = '12345' WHERE id = 2;
+UPDATE playground.account SET apartment = 45, city = 'Vitebsk', house = 10, street = 'volnaya', email = 'petya@gmail.com', login = 'proGame', name = 'Ivan', password = '12345' WHERE id = 3;
+UPDATE playground.account SET apartment = 34, city = 'Minsk', house = 10, street = 'kijevatova', email = 'polkan@gmail.com', login = 'polk', name = 'Leha', password = '12345' WHERE id = 4;
+UPDATE playground.account SET apartment = 1, city = 'Minsk', house = 53, street = 'sq.Lenina', email = 'admin@gmail.com', login = 'god', name = 'Ignat', password = '12345' WHERE id = 5;

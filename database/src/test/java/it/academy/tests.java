@@ -2,6 +2,8 @@ package it.academy;
 
 import it.academy.entity.Purchase;
 import it.academy.entity.account.Address;
+import it.academy.entity.account.admin.Admin;
+import it.academy.entity.account.admin.Role;
 import it.academy.entity.account.provider.Provider;
 import it.academy.entity.account.provider.Requisites;
 import it.academy.entity.account.user.Language;
@@ -14,6 +16,7 @@ import org.junit.AfterClass;
 import org.junit.Test;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class tests {
     private static final SessionFactory SESSION_FACTORY =
@@ -72,7 +75,7 @@ public class tests {
                         "Vitebsk",
                         "volnaya",
                         10,
-                        1),
+                        45),
                 "Ivan",
                 "proGame",
                 "12345",
@@ -100,6 +103,34 @@ public class tests {
 
         session.getTransaction().commit();
         session.close();
+    }
+    @Test
+    public void testAdmin(){
+        Session session = SESSION_FACTORY.openSession();
+        session.beginTransaction();
+        Admin admin = new Admin();
+        admin.setRole(Role.MODERATOR);
+        admin.setAddress(new Address("Minsk", "sq.Lenina", 53, 1));
+        admin.setEmail("admin@gmail.com");
+        admin.setLogin("god");
+        admin.setName("Ignat");
+        admin.setPassword("12345");
+
+        session.save(admin);
+        session.getTransaction().commit();
+        session.close();
+    }
+    @Test
+    public void allUser() {
+        final SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+
+        List<User> resultList = session.createQuery("select a from User a", User.class).getResultList();
+        resultList.forEach(System.out::println);
+        session.getTransaction().commit();
+        session.close();
+        sessionFactory.close();
     }
        @AfterClass
     public static void fin() {

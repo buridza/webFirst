@@ -1,0 +1,2 @@
+UPDATE playground.game SET age_restrictions = 10, cost = 100, language = 1, name = 'Durak', numberOfPlayers = 10, rules = 'Убивать нельзя', game_id = 2 WHERE id = 1;
+UPDATE playground.game SET age_restrictions = 30, cost = 50, language = 0, name = 'Pasians', numberOfPlayers = 4, rules = 'kill all', game_id = 3 WHERE id = 2;
