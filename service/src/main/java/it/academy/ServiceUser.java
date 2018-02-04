@@ -1,7 +1,11 @@
 package it.academy;
 
+import it.academy.entity.account.user.User;
+
+import java.util.List;
+
 public class ServiceUser {
-    public String userMessage() {
-        return new UserDAO().say();
+    public List<User> allUser() {
+        return new UserDAO().allUser();
     }
 }

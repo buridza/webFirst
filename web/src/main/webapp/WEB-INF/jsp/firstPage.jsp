@@ -11,6 +11,6 @@
     <title>Title</title>
 </head>
 <body>
-${requestScope.get("message")}
+${requestScope.get("allUser")}
 </body>
 </html>
