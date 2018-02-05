@@ -20,17 +20,24 @@ import java.util.List;
 
 public class tests {
     private static final SessionFactory SESSION_FACTORY =
-            new Configuration().configure().buildSessionFactory();
+            new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
 
     @Test
-    public void testJoined() {
+    public void testUser() {
         Session session = SESSION_FACTORY.openSession();
         session.beginTransaction();
-        User user = new User(new Address("Belarus", "Minsk", 10, 10),
-                "Alex", "TheBest", "12345", "THeBest@gmail.com", LocalDate.now(),
+        User user = new User(
+                new Address(
+                        "Belarus",
+                        "Minsk",
+                        10,
+                        10),
+                "Alex",
+                "TheBest",
+                "12345",
+                "THeBest@gmail.com",
+                LocalDate.now(),
                 Language.RUSSIAN);
-
-
         session.save(user);
 
         session.getTransaction().commit();
@@ -121,17 +128,31 @@ public class tests {
         session.close();
     }
     @Test
-    public void allUser() {
-        final SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-        Session session = sessionFactory.openSession();
+    public void testProvider(){
+        Session session = SESSION_FACTORY.openSession();
         session.beginTransaction();
+        Provider provider = new Provider(
+                new Address(
+                        "Vitebsk",
+                        "volnaya",
+                        10,
+                        91),
+                "Ivan",
+                "EA",
+                "12345",
+                "EA@gmail.com",
+                new Requisites(
+                        "smth",
+                        14526L,
+                        544245L,
+                        "smth")
 
-        List<User> resultList = session.createQuery("select a from User a", User.class).getResultList();
-        resultList.forEach(System.out::println);
+        );
         session.getTransaction().commit();
         session.close();
-        sessionFactory.close();
     }
+
+
        @AfterClass
     public static void fin() {
         SESSION_FACTORY.close();
