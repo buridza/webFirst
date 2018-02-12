@@ -8,6 +8,7 @@ import lombok.ToString;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
@@ -22,7 +23,7 @@ import javax.persistence.Table;
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "account")
 public abstract class Account extends BaseEntity {
-
+    @Embedded
     private Address address;
     @Column(name = "name", nullable = false)
     private String name;

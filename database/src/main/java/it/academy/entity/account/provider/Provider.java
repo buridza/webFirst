@@ -8,6 +8,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 
 @Entity
@@ -17,6 +18,7 @@ import javax.persistence.Entity;
 @NoArgsConstructor
 public class Provider extends Account {
     @Column(nullable = false, unique = true)
+    @Embedded
     private Requisites requisites;
 
     public Provider(Address address, String name, String login, String password, String email, Requisites requisites) {

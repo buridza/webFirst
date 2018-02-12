@@ -1,4 +1,4 @@
-package it.academy;
+package it.academy.dao;
 
 import it.academy.entity.account.user.User;
 import org.hibernate.Session;

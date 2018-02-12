@@ -1,5 +1,6 @@
 package it.academy;
 
+import it.academy.dao.UserDAO;
 import it.academy.entity.account.user.User;
 import org.junit.Test;
 

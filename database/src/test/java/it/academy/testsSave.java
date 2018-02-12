@@ -18,7 +18,7 @@ import org.junit.Test;
 import java.time.LocalDate;
 import java.util.List;
 
-public class tests {
+public class testsSave {
     private static final SessionFactory SESSION_FACTORY =
             new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
 

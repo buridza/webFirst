@@ -14,7 +14,7 @@ import javax.persistence.Enumerated;
 
 @Getter
 @Setter
-@ToString
+@ToString(callSuper = true)
 @Entity
 @DiscriminatorValue("admin")
 public class Admin extends Account {
