@@ -18,6 +18,7 @@ import org.hibernate.cfg.Configuration;
 import org.junit.Test;
 
 import java.time.LocalDate;
+import java.util.Random;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.nullValue;
@@ -187,27 +188,36 @@ public class testsDAO {
 
         session.close();
     }
+    /*@Test
+    public void createNewRecord(){
+        for (int i = 0; i < 100; i++) {
+            gameDAO();
+        }
+    }*/
     @Test
     public void gameDAO(){
         Session session = SESSION_FACTORY.openSession();
-
+        Random random = new Random();
         Provider provider = new Provider(
                 new Address(
-                        "Vitebsk",
-                        "volnaya",
-                        10,
-                        45),
-                "Ivan",
-                "proGame",
-                "12345",
-                "petya@gmail.com",
+                        "Vitebsk" + random.nextInt(1526),
+                        "volnaya"+ random.nextInt(1526),
+                        + random.nextInt(1526),
+                        + random.nextInt(1526)),
+                "Ivan"+ random.nextInt(1526),
+                "proGame"+ random.nextInt(1526),
+                "12345"+ random.nextInt(1526),
+                "petya@gmail.com"+ random.nextInt(1526),
                 new Requisites(
-                        "bank",
-                        1456L,
-                        54245L,
-                        "paym")
+                        "bank"+ random.nextInt(1526),
+                        1456L+ random.nextInt(1526),
+                        54245L+ random.nextInt(1526),
+                        "paym"+ random.nextInt(1526))
         );
-        Game game = new Game("Pasians", "kill all", 50, 30, 4, Language.RUSSIAN,
+        Game game = new Game("Pasians"+ random.nextInt(1526), "kill all"+ random.nextInt(1526),
+                random.nextInt(1526), random.nextInt(1526),
+                random.nextInt(1526),
+                Language.values()[random.nextInt(3)],
                 provider);
         new ProviderDAO().save(session, provider);
         new GameDAO().save(session,game);

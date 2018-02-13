@@ -1,2 +1,0 @@
-UPDATE playground.user SET date = '2018-02-03', language = 'RUSSIAN', friend_id = null WHERE id = 1;
-UPDATE playground.user SET date = '2018-02-03', language = 'RUSSIAN', friend_id = null WHERE id = 4;

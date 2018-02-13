@@ -1,1 +1,0 @@
-UPDATE playground.purchase SET date = '2018-02-03', paymentStatus = true, game_id = 2, user_id = 4 WHERE id = 1;

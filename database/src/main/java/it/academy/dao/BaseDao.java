@@ -1,10 +1,12 @@
 package it.academy.dao;
 
 import it.academy.entity.BaseEntity;
+import it.academy.entity.game.Game;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
@@ -69,4 +71,6 @@ public class BaseDao<T extends BaseEntity> {
 
         return resultList;
     }
+
+
 }
