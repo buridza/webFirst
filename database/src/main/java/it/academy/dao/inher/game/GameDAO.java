@@ -45,8 +45,8 @@ public class GameDAO extends BaseDao<Game> {
 
             query.where(game.cost.goe(cost))
                 .where(game.ageRestrictions.goe(ageRest));
-        if(!name.isEmpty()){
-            query.where(game.name.eq(name));
+        if(!(name==null || name.isEmpty())){
+            query.where(game.name.like(name));
         }
         if(language != null){
             query.where(game.language.eq(language));
